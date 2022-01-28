@@ -10,7 +10,7 @@ There is also a corresponding tutorial where you can learn how to implement a we
 4. [Pages and Templates](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/pages-templates.html)
 5. [Client-Side Libraries](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/client-side-libraries.html)
 6. [Style a Component](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/style-system.html)
-7. [Custom Component]https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/custom-component.html)
+7. [Custom Component]https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/custom-component.html) **
 8. [Unit Testing](https://experienceleague.adobe.com/docs/experience-manager-learn/getting-started-wknd-tutorial-develop/unit-testing.html)
 
 ## Modules
