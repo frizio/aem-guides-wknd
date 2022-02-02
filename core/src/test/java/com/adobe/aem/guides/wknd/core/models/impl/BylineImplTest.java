@@ -1,25 +1,42 @@
 package com.adobe.aem.guides.wknd.core.models.impl;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.Mock;
 
 import com.adobe.aem.guides.wknd.core.models.Byline;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import com.adobe.cq.wcm.core.components.models.Image;
 
 import io.wcm.testing.mock.aem.junit5.AemContext;
 import io.wcm.testing.mock.aem.junit5.AemContextExtension;
 
-@ExtendWith(AemContextExtension.class)
+import org.apache.sling.models.factory.ModelFactory;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
+import org.apache.sling.api.resource.Resource;
+
+
+@ExtendWith( { AemContextExtension.class, MockitoExtension.class })
 public class BylineImplTest {
 
-  private final AemContext ctx = new AemContext();
+    private final AemContext ctx = new AemContext();
+
+    @Mock
+    private Image image;
+
+    @Mock
+    private ModelFactory modelFactory;
 
     @BeforeEach
     void setUp() throws Exception {
       ctx.addModelsForClasses(BylineImpl.class);
       ctx.load().json("/com/adobe/aem/guides/wknd/core/models/impl/BylineImplTest.json", "/content");
+      lenient().when( modelFactory.getModelFromWrappedRequest( eq(ctx.request()), any(Resource.class), eq(Image.class) ) )
+               .thenReturn(image);
+      ctx.registerService(ModelFactory.class, modelFactory, org.osgi.framework.Constants.SERVICE_RANKING, Integer.MAX_VALUE);
     }
 
     @Test 
